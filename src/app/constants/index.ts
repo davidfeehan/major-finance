@@ -27,6 +27,7 @@ export type AppScreen =
   | 'help'
   | 'progress'
   | 'missions'
+  | 'career-map'
   | 'xp-notification'
   | 'nav-test'
   | 'desktop-layout-test';

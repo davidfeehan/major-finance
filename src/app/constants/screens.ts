@@ -115,6 +115,11 @@ export const SCREEN_CONFIG = {
     showNavigation: true,
     layout: 'default'
   },
+  'career-map': {
+    requiresAuth: true,
+    showNavigation: true,
+    layout: 'default'
+  },
   'xp-notification': {
     requiresAuth: true,
     showNavigation: false,
