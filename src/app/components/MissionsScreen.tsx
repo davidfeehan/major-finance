@@ -14,7 +14,8 @@ import {
   Flame,
   ChevronRight,
   Trophy,
-  ArrowLeft
+  ArrowLeft,
+  Map as MapIcon
 } from 'lucide-react';
 import { useTheme, MILITARY_THEMES } from './ThemeProvider';
 import { OperationsOverview } from './OperationsOverview';
@@ -32,10 +33,11 @@ interface UserData {
 interface MissionsScreenProps {
   userData: UserData;
   onMissionSelect: (missionId: string) => void;
+  onNavigate?: (screen: string) => void;
   isDemo?: boolean;
 }
 
-export function MissionsScreen({ userData, onMissionSelect, isDemo = false }: MissionsScreenProps) {
+export function MissionsScreen({ userData, onMissionSelect, onNavigate, isDemo = false }: MissionsScreenProps) {
   const { theme } = useTheme();
   const branchInfo = MILITARY_THEMES[theme.branch];
   const [selectedOperation, setSelectedOperation] = useState<string | null>(null);
@@ -263,9 +265,21 @@ export function MissionsScreen({ userData, onMissionSelect, isDemo = false }: Mi
                   </div>
                 </div>
 
-                {/* Trophy Icon */}
-                <div className="flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg flex-shrink-0">
-                  <Trophy className="w-7 h-7 text-white" />
+                {/* Map View toggle + Trophy */}
+                <div className="flex items-center gap-3 flex-shrink-0">
+                  {onNavigate && (
+                    <Button
+                      variant="secondary"
+                      onClick={() => onNavigate('career-map')}
+                      className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm"
+                    >
+                      <MapIcon className="w-4 h-4 mr-2" />
+                      Map View
+                    </Button>
+                  )}
+                  <div className="flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
+                    <Trophy className="w-7 h-7 text-white" />
+                  </div>
                 </div>
               </div>
 

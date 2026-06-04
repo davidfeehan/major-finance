@@ -69,7 +69,7 @@ function BottomNavigation({ currentScreen, onNavigate, userData }: BottomNavigat
       return currentScreen === 'dashboard';
     }
     if (screenId === 'missions') {
-      return ['missions', 'emergency-fund', 'investment-basics', 'tsp-optimization', 'financial-education', 'retirement-planning', 'retirement-calculator'].includes(currentScreen);
+      return ['missions', 'career-map', 'emergency-fund', 'investment-basics', 'tsp-optimization', 'financial-education', 'retirement-planning', 'retirement-calculator'].includes(currentScreen);
     }
     if (screenId === 'banking') {
       return currentScreen === 'banking';

@@ -26,6 +26,7 @@ import { SettingsScreen } from './SettingsScreen';
 import { HelpScreen } from './HelpScreen';
 import { ProgressScreen } from './ProgressScreen';
 import { MissionsScreen } from './MissionsScreen';
+import { CareerMapScreen } from './CareerMapScreen';
 import { AuthFlow } from './AuthFlow';
 import { DemoInterstitial } from './DemoInterstitial';
 import { DesktopLayoutTest } from './DesktopLayoutTest';
@@ -291,9 +292,21 @@ export function AppRouter({
           <MissionsScreen
             userData={userData.userData}
             onMissionSelect={onMissionSelect}
+            onNavigate={onNavigate}
+            isDemo={auth.isDemo}
           />
         );
-      
+
+      case 'career-map':
+        return (
+          <CareerMapScreen
+            userData={userData.userData}
+            onMissionSelect={onMissionSelect}
+            onBack={() => onNavigate('missions')}
+            isDemo={auth.isDemo}
+          />
+        );
+
       case 'xp-notification':
         // XP notifications now show as modal overlays, not as a screen
         // Redirect to dashboard if somehow accessed directly
